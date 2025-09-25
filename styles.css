@@ -1,223 +1,240 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Mukta', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Mukta", sans-serif;
 }
-
 
 body {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: space-evenly;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow-x: hidden;
+  padding: 20px;
+  position: relative;
 }
 
-
 .logomario {
-    width: 300px;
-
+  width: 300px;
+  max-width: 100%;
 }
 
 .marioeluigi {
-    height: 600px;
+  height: 600px;
+  max-width: 100%;
 }
 
 .div-principal {
-    width: 40%;
+  width: 40%;
+  padding: 0 20px;
 }
-
 
 .video-mario {
-    position: fixed;
-    top: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
-
 video {
-    position: fixed;
-    top: 0;
-    min-height: 100%;
-    min-width: 100%;
-
+  position: fixed;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .mascara-video {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: linear-gradient(
+    109deg,
+    rgba(10, 12, 16, 0.99) 15%,
+    rgba(10, 12, 16, 0.7) 50%,
+    rgba(10, 12, 16, 0.99) 85%
+  );
 }
 
 p {
-    color: white;
-    margin-top: 10px;
-    font-size: 24px;
+  color: white;
+  margin-top: 10px;
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 button {
-    height: 40px;
-    width: 200px;
-    background-color: #C51111;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    margin-top: 20px;
-    cursor: pointer;
+  height: 50px;
+  width: 200px;
+  background-color: #c51111;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
 
+button:hover {
+  background-color: #a50d0d;
+  transform: scale(1.05);
 }
 
 .formularioprincipal {
-    background: white;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 10px;
-    gap: 20px;
-    position: fixed;
-    left: -360px;
-    transition: left 1s linear;
-    z-index: 4;
-    height: 500px;
-    width: 350px;
-    justify-content: center;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 10px;
+  gap: 20px;
+  position: fixed;
+  top: 50%;
+  left: -100%;
+  transform: translateY(-50%);
+  transition: left 0.5s ease-in-out;
+  z-index: 4;
+  height: auto;
+  min-height: 500px;
+  width: 90%;
+  max-width: 400px;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-input {
-    height: 40px;
-    border-radius: 3px;
-    border: 1px solid gray;
-    padding-left: 10px;
-    outline-color: red;
+input,
+textarea {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  outline-color: #c51111;
+  font-size: 1rem;
+  width: 100%;
 }
 
 textarea {
-    height: 90px;
-    border-radius: 3px;
-    border: 1px solid gray;
-    padding-left: 10px;
-    padding: 10px;
-    outline-color: red;
-
+  height: 120px;
+  padding: 15px;
+  resize: vertical;
 }
 
 .mascara-form {
-    visibility: hidden;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
-    position: fixed;
-    top: 0;
-    z-index: 3;
+  visibility: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  transition: visibility 0.3s;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
 
+.btn-fechar {
+  background-color: #666;
+  margin-top: 10px;
+}
+
+.btn-fechar:hover {
+  background-color: #555;
 }
 
 @media screen and (max-width: 1200px) {
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-        font-family: 'Mukta', sans-serif;
-    }
-    
-    body {
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        justify-content: space-evenly;
-        height: 100vh;
-    }
-    
-    .logomario {
-        width: 100%; 
-        max-width: 300px; 
-        margin-top: 150px;
-    }
-    
-    .marioeluigi {
-        width: 100%; 
-        height: auto; 
-    }
-    
-    .div-principal {
-        width: 80%; 
-        max-width: 400px; 
-    }
-    
-    .video-mario video {
-        width: 100%;
-        height: auto;
-    }
-    
-    h1 {
-        text-align: center;
-    }
-    
-    .mascara-video {
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
-    }
-    
-    p {
-        color: white;
-        margin-top: 10px;
-        font-size: 18px; 
-    }
-    
-    button {
-        height: 40px;
-        width: 100%;
-        max-width: 200px; 
-        background-color: #C51111;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        margin-top: 20px;
-        cursor: pointer;
-    }
-    
-    .formularioprincipal {
-        background: white;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        border-radius: 10px;
-        gap: 20px;
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%); 
-        transition: left 1s linear;
-        z-index: 4;
-        height: auto;
-        width: 80%; 
-        max-width: 350px; 
-        justify-content: center;
-    }
-    
-    input,
-    textarea {
-        width: 100%;
-    }
-    
-    .mascara-form {
-        visibility: hidden;
-        height: 100vh;
-        width: 100vw;
-        background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
-        position: fixed;
-        top: 0;
-        z-index: 3;
-    }
-    
+  body {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .div-principal {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .marioeluigi {
+    height: auto;
+    max-height: 400px;
+    margin: 20px 0;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .formularioprincipal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .formularioprincipal.ativo {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mascara-form.ativo {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .div-principal {
+    width: 95%;
+  }
+
+  .logomario {
+    width: 250px;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .marioeluigi {
+    max-height: 300px;
+  }
+
+  .formularioprincipal {
+    width: 95%;
+    padding: 20px;
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .formularioprincipal {
+    max-width: 320px;
+  }
+
+  .marioeluigi {
+    max-height: 250px;
+  }
 }
